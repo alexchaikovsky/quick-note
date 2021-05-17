@@ -29,6 +29,8 @@ function Note(props) {
           <NotePopup
             text={props.note.text}
             editNote={props.editNote}
+            deleteNote={props.deleteNote}
+            closeNote={closeModal}
             id={props.note.id}
           />
         </div>
@@ -58,7 +60,6 @@ function Note(props) {
       onMouseLeave={handleUnhovering}
       onClick={handleClick}
     >
-      {removeButton()}
       {showEditor()}
       <div className="note-text">{props.note.text}</div>
     </div>

@@ -32,3 +32,18 @@ h1 {
   color: #fff;
   font-size: 48px;
 }
+
+@media (max-width: 720px) {
+  .note-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    max-width: 95%;
+    min-height: 600px;
+    background: #161a2b;
+    text-align: center;
+    margin: 64px auto;
+    border-radius: 10px;
+    padding-bottom: 32px;
+  }
+}

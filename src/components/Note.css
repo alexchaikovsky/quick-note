@@ -34,3 +34,9 @@
   position: absolute;
   background-color: #ffdb0c;
 }
+
+@media (max-width: 720px) {
+  .modal {
+    max-width: 100%;
+  }
+}

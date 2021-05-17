@@ -39,11 +39,16 @@ const NotePopup = (props) => {
             startIcon={<DeleteIcon />}
             variant="contained"
             color="secondary"
+            onClick={() => props.deleteNote(props.id)}
           >
             Удалить
           </Button>
         </ButtonGroup>
-        <Button startIcon={<CloseIcon />} variant="contained">
+        <Button
+          startIcon={<CloseIcon />}
+          variant="contained"
+          onClick={props.closeNote}
+        >
           Закрыть
         </Button>
       </Box>
