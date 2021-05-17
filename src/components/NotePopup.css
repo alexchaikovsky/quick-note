@@ -1,0 +1,28 @@
+.note-popup {
+  color: rgb(0, 0, 0);
+  background: #ffe75e;
+
+  margin-top: 10px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
+  display: inline-block;
+  padding: 10px 10px;
+  word-break: break-all; /* optional */
+  width: 100%;
+}
+
+.note-popup-text {
+  display: inline-block;
+  white-space: pre-wrap;
+  min-height: 100px;
+  min-width: 100%;
+}
+.buttons-box {
+  min-width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
