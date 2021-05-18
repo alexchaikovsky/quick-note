@@ -14,6 +14,7 @@ function NoteForm(props) {
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input,
+      datetime: new Date().toLocaleString(),
     });
     setInput("");
   };
@@ -22,13 +23,13 @@ function NoteForm(props) {
     <form className="note-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Add a note"
+        placeholder="Добавить заметку"
         value={input}
         name="text"
         className="note-input"
         onChange={handleChange}
       />
-      <button className="note-button">Add note</button>
+      <button className="note-button">Добавить</button>
     </form>
   );
 }

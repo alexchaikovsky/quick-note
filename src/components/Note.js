@@ -4,6 +4,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import NotePopup from "./NotePopup.js";
+import { PriorityHighSharp } from "@material-ui/icons";
 
 function Note(props) {
   const [editing, setEditing] = useState(false);
@@ -24,10 +25,12 @@ function Note(props) {
 
   const showEditor = () => {
     return (
-      <Popup open={editing} closeOnDocumentClick onClose={closeModal}>
+      <Popup open={editing} closeOnDocumentClick onClose={closeModal} modal>
         <div className="modal">
           <NotePopup
+            note={props.note}
             text={props.note.text}
+            datetime={props.note.datetime}
             editNote={props.editNote}
             deleteNote={props.deleteNote}
             closeNote={closeModal}

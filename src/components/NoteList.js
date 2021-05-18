@@ -44,10 +44,11 @@ function NoteList() {
     saveToLocalStorage(filtered);
   };
 
-  const editNote = (id, text) => {
+  const editNote = (id, text, time) => {
     console.log("start saving edit");
     let index = notes.findIndex((x) => x.id === id);
     notes[index].text = text;
+    notes[index].datetime = time;
     setNotes(notes);
     saveToLocalStorage(notes);
   };

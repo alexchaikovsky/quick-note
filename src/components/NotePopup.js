@@ -8,11 +8,17 @@ import Box from "@material-ui/core/Box";
 import CloseIcon from "@material-ui/icons/Close";
 
 const NotePopup = (props) => {
+  const [datetime, setDatetime] = useState(props.datetime);
+
   const saveEdit = () => {
     let contenteditable = document.querySelector("[contentEditable]");
     let text = contenteditable.textContent;
     console.log(text);
-    props.editNote(props.id, text);
+    if (props.text !== text) {
+      const editTime = new Date().toLocaleString();
+      setDatetime(editTime);
+      props.editNote(props.id, text, editTime);
+    }
   };
 
   return (
@@ -24,7 +30,9 @@ const NotePopup = (props) => {
       >
         {props.text}
       </div>
+
       <br />
+      <div className="datetime">Дата изменения: {datetime}</div>
       <Box className="buttons-box" m={2}>
         <ButtonGroup>
           <Button

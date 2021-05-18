@@ -2,7 +2,6 @@
   color: rgb(0, 0, 0);
   background: #ffe75e;
 
-  margin-top: 10px;
   font-family: Noto Sans;
   font-style: normal;
   font-weight: normal;
@@ -27,6 +26,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.datetime {
+  font-size: 13px;
+  text-align: right;
 }
 
 @media (max-width: 720px) {
