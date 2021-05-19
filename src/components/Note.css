@@ -9,6 +9,9 @@
   padding: 16px;
   box-sizing: border-box;
   text-align: left;
+  max-height: 75vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .notebox:hover {
   background: #ffdb0c;
@@ -36,16 +39,16 @@
   background-color: #ffdb0c;
 }
 
-.popup-arrows {
-  background: #ffe75e;
-}
-.popup-overlay {
-  background: #ffe75e;
-}
 .popup-content {
-  background: #ffe75e;
+  background: #ffdb0c;
+  padding: 0px !important;
 }
-
+.popup-modal-content {
+  background-color: #ffdb0c;
+}
+.popup-modal-overlay {
+  background-color: #ffdb0c;
+}
 @media (max-width: 720px) {
   .modal {
     max-width: 100%;
