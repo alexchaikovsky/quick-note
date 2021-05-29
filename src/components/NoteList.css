@@ -30,3 +30,19 @@
     margin-bottom: 15px; /* space between items */
   }
 }
+
+.popup-content {
+  background: #161a2b;
+  padding: -1px;
+  border: 0px solid #e70a0a;
+}
+.popup-modal-content {
+  background-color: #161a2b;
+}
+.popup-modal-overlay {
+  background-color: #161a2b;
+}
+
+.modal {
+  background-color: #161a2b;
+}

@@ -51,6 +51,7 @@
 .popup-content {
   background: #ffdb0c;
   padding: 0px !important;
+  border: 0px solid #000000;
 }
 .popup-modal-content {
   background-color: #ffdb0c;

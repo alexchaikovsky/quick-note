@@ -4,8 +4,11 @@ import NoteForm from "./NoteForm";
 import "./NoteList.css";
 import Masonry from "react-masonry-css";
 import toast, { Toaster } from "react-hot-toast";
+import Popup from "reactjs-popup";
+import Button from "@material-ui/core/Button";
 
 function NoteList() {
+  const [inputActive, setInput] = useState(false);
   const [notes, setNotes] = useState([]);
   const breakpointColumnsObj = {
     default: 5,
@@ -76,14 +79,32 @@ function NoteList() {
     ));
   };
 
-  const showAlert = (message) => {
-    alert(message);
-  };
+  const closeModal = () => setInput(false);
+  const showInput = () => setInput(true);
 
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false} />
-      <NoteForm onSubmit={addNote} />
+      <Button
+        variant="contained"
+        color="primary"
+        size="large"
+        onClick={showInput}
+        style={{
+          maxWidth: "500px",
+          maxHeight: "50px",
+          minWidth: "350px",
+          minHeight: "50px",
+        }}
+      >
+        Новая заметка
+      </Button>
+      <Popup open={inputActive} closeOnDocumentClick onClose={closeModal} modal>
+        <div className="modal">
+          <NoteForm onSubmit={addNote} closeForm={closeModal} />
+        </div>
+      </Popup>
+
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"

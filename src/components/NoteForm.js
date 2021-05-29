@@ -24,25 +24,28 @@ function NoteForm(props) {
     });
     setInput("");
     setHeader("");
+    props.closeForm();
   };
 
   return (
     <form className="note-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Заголовок"
+        placeholder="Название"
         value={inputHeader}
         name="text"
         className="note-input-header"
         onChange={handleHeaderChange}
+        autoComplete="off"
       />
-      <input
+      <textarea
         type="text"
-        placeholder="Добавить заметку"
+        placeholder="Текст"
         value={input}
         name="text"
         className="note-input"
         onChange={handleChange}
+        autoComplete="off"
       />
       <button className="note-button">Добавить</button>
     </form>
