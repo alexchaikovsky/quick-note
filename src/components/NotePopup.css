@@ -13,6 +13,13 @@
   width: 100%;
 }
 
+.note-popup-header {
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 18px;
+  text-align: center;
+}
+
 .note-popup-text {
   display: inline-block;
   white-space: pre-wrap;
@@ -20,6 +27,10 @@
   min-width: 100%;
   overflow-y: auto;
   max-height: 75vh;
+}
+
+.note-popup-header {
+  font-style: bold;
 }
 .buttons-box {
   min-width: 80%;

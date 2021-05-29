@@ -11,28 +11,45 @@ const NotePopup = (props) => {
   const [datetime, setDatetime] = useState(props.datetime);
 
   const saveEdit = () => {
-    let contenteditable = document.querySelector("[contentEditable]");
-    let text = contenteditable.textContent;
+    let headerContent = document.getElementById("note-header");
+    let noteContent = document.getElementById("text");
+    let header = headerContent.textContent;
+    let text = noteContent.textContent;
     console.log(text);
-    if (props.text !== text) {
-      const editTime = new Date().toLocaleString();
+    if (props.text !== text || props.note.header !== header) {
+      const editTime = new Date().toUTCString();
       setDatetime(editTime);
-      props.editNote(props.id, text, editTime);
+      props.editNote(props.id, text, header, editTime);
+      props.closeNote();
     }
   };
 
   return (
     <div className="note-popup">
+      <div>
+        <div
+          contentEditable="true"
+          className="note-popup-header"
+          id="note-header"
+          suppressContentEditableWarning={true}
+        >
+          {props.note.header}
+        </div>
+      </div>
+
       <div
         contentEditable="true"
         className="note-popup-text"
         suppressContentEditableWarning={true}
+        id="text"
       >
         {props.text}
       </div>
 
       <br />
-      <div className="datetime">Дата изменения: {datetime}</div>
+      <div className="datetime">
+        Дата изменения: {new Date(datetime).toLocaleString()}
+      </div>
       <Box className="buttons-box" m={2}>
         <ButtonGroup>
           <Button

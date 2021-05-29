@@ -3,9 +3,14 @@ import "./NoteForm.css";
 
 function NoteForm(props) {
   const [input, setInput] = useState("");
+  const [inputHeader, setHeader] = useState("");
 
   const handleChange = (e) => {
     setInput(e.target.value);
+  };
+
+  const handleHeaderChange = (e) => {
+    setHeader(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -13,14 +18,24 @@ function NoteForm(props) {
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
+      header: inputHeader,
       text: input,
-      datetime: new Date().toLocaleString(),
+      datetime: new Date().toUTCString(),
     });
     setInput("");
+    setHeader("");
   };
 
   return (
     <form className="note-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Заголовок"
+        value={inputHeader}
+        name="text"
+        className="note-input-header"
+        onChange={handleHeaderChange}
+      />
       <input
         type="text"
         placeholder="Добавить заметку"

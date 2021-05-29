@@ -3,6 +3,7 @@ import Note from "./Note";
 import NoteForm from "./NoteForm";
 import "./NoteList.css";
 import Masonry from "react-masonry-css";
+import toast, { Toaster } from "react-hot-toast";
 
 function NoteList() {
   const [notes, setNotes] = useState([]);
@@ -35,6 +36,7 @@ function NoteList() {
     setNotes(newNotes);
     console.log(...notes);
     saveToLocalStorage(newNotes);
+    toast.success("Заметка добавлена!");
   };
   const deleteNote = (id) => {
     console.log("enter delete");
@@ -42,15 +44,25 @@ function NoteList() {
     console.log(id);
     setNotes(filtered);
     saveToLocalStorage(filtered);
+    toast.success("Заметка удалена!");
   };
 
-  const editNote = (id, text, time) => {
+  const editNote = (id, text, header, time) => {
     console.log("start saving edit");
     let index = notes.findIndex((x) => x.id === id);
-    notes[index].text = text;
-    notes[index].datetime = time;
-    setNotes(notes);
-    saveToLocalStorage(notes);
+    const newNote = {
+      id: id,
+      header: header,
+      text: text,
+      datetime: time,
+    };
+    const newNotes = [newNote, ...notes];
+    newNotes.splice(index + 1, 1);
+    setNotes(newNotes);
+
+    //setNotes(newotes);
+    saveToLocalStorage(newNotes);
+    toast.success("Изменения сохранены!");
   };
 
   const buildNotes = () => {
@@ -64,8 +76,13 @@ function NoteList() {
     ));
   };
 
+  const showAlert = (message) => {
+    alert(message);
+  };
+
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} />
       <NoteForm onSubmit={addNote} />
       <Masonry
         breakpointCols={breakpointColumnsObj}

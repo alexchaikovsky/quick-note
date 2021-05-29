@@ -64,6 +64,7 @@ function Note(props) {
       onClick={handleClick}
     >
       {showEditor()}
+      <div className="note-header">{props.note.header}</div>
       <div className="note-text">{props.note.text}</div>
     </div>
   );

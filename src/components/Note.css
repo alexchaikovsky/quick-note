@@ -19,6 +19,15 @@
   cursor: pointer;
 }
 
+.note-header {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 18px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .note-text {
   margin-top: 10px;
   font-family: Noto Sans;
